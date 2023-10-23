@@ -1,0 +1,6 @@
+# Visual Studio temporary files
+.vscode/
+.vs/
+bin/
+obj/
+ProjectUserFiles/
