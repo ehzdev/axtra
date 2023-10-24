@@ -121,4 +121,8 @@
     <value>Digital Marketing</value>
     <comment/>
   </data>
+  <data name="ServicesIndex" xml:space="preserve">
+    <value>ServicesIndex_En</value>
+    <comment/>
+  </data>
 </root>

@@ -1,17 +1,24 @@
   <header class="header__area-3">
     <div class="header__inner-3">
       <div class="header__logo-2">
-        <a href="index.html" class="logo-dark"><img src="./imgs/logo/logo-black.png" alt="Site Logo"></a>
-        <a href="index.html" class="logo-light"><img src="./imgs/logo/site-logo-white-2.png" alt="Site Logo"></a>
+        <a href="/" class="logo-dark"><img src="./imgs/logo/logo-black.png" alt="Site Logo"></a>
+        <a href="/" class="logo-light"><img src="./imgs/logo/site-logo-white-2.png" alt="Site Logo"></a>
       </div>
       <div class="header__nav-2">
         <ul class="main-menu-3 menu-anim">
+          <li>
+            <a href="/">home</a>
+          </li>
+          <li>
+            <a href="@Url.RouteUrl($"ServicesIndex_En")" data-url="@ViewBag.ServicesIndex">@(ViewBag.ServicesIndex)</a>
+          </li>
+          @if(false) {
           <li class="has-megamenu"><a href="#">home</a>
             <ul class="mega-menu">
               <li>
                 <div class="menu-heading">Agency</div>
                 <ul>
-                  <li><a href="index.html">Digital Maketing</a></li>
+                  <li><a href="/">Digital Maketing</a></li>
                   <li><a href="index-2.html">Design Studio </a></li>
                   <li><a href="index-3.html">Digital Agency</a></li>
                   <li><a href="index-7.html">creative Agency</a></li>
@@ -205,6 +212,7 @@
               <li><a href="blog-details.html">blog details</a></li>
             </ul>
           </li>
+          }
         </ul>
       </div>
       <div class="header__nav-icon-3">

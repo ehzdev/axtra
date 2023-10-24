@@ -1,6 +1,10 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-
-@inject IViewLocalizer Localizer
+﻿@{
+    var routeData = ViewContext.RouteData;
+    var controller = routeData.Values["controller"];
+    var action = routeData.Values["action"];
+    var area = routeData.Values["area"];
+    ViewBag.ServicesIndex = Localizer["ServicesIndex"];
+}
 
 <!DOCTYPE html>
 <html lang="es">
@@ -108,7 +112,11 @@
 
 
   <!-- Header area start -->
-  @await Html.PartialAsync("_Header")
+  @if(string.Equals(controller, "Home")) {
+    @await Html.PartialAsync("_Header")
+  } else {
+    @await Html.PartialAsync("_Header2")
+  }
   <!-- Header area end -->
 
 
@@ -124,7 +132,11 @@
       </main>
 
       <!-- Footer area start -->
-      @await Html.PartialAsync("_Footer")
+      @if(string.Equals(controller, "Home")) {
+        @await Html.PartialAsync("_Footer")
+      } else {
+        @await Html.PartialAsync("_Footer2")
+      }
       <!-- Footer area end -->
     </div>
   </div>
