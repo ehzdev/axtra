@@ -1,17 +1,40 @@
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
+using System.Reflection;
+using Microsoft.Extensions.Options;
+using Localization.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSingleton<LanguageService>();
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 builder.Services.AddMvc()
-    .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-    .AddDataAnnotationsLocalization();
+    //.AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+    .AddViewLocalization()
+    .AddDataAnnotationsLocalization(options => {
+        options.DataAnnotationLocalizerProvider = (type, factory) => {
+            var assemblyName = new AssemblyName(typeof(GlobalResources).GetTypeInfo().Assembly.FullName);
+            return factory.Create("GlobalResources", assemblyName.Name);
+        };
+    });
 
-builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+builder.Services.Configure<RequestLocalizationOptions>(options => {
+    var supportedCultures = new List<CultureInfo> {
+        new CultureInfo("es-MX"),
+        new CultureInfo("en-US")
+    };
+    options.DefaultRequestCulture = new RequestCulture(culture: "es-MX", uiCulture: "fr-FR");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+    options.RequestCultureProviders.Insert(0, new QueryStringRequestCultureProvider());
+});
+
+builder.Services.AddRazorPages()
+    .AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 
@@ -34,19 +57,21 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-    
 
-var supportedCultures = new[]
-{
-    new CultureInfo("en-US"),
-    new CultureInfo("es-MX")
-};
+app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
-app.UseRequestLocalization(new RequestLocalizationOptions
-{
-    DefaultRequestCulture = new RequestCulture("es-ES"),
-    SupportedCultures = supportedCultures,
-    SupportedUICultures = supportedCultures
-});
+//var supportedCultures = new[]
+//{
+//    new CultureInfo("en-US"),
+//    new CultureInfo("es-MX")
+//};
+
+//app.UseRequestLocalization(new RequestLocalizationOptions
+//{
+//    DefaultRequestCulture = new RequestCulture("es-ES"),
+//    SupportedCultures = supportedCultures,
+//    SupportedUICultures = supportedCultures
+//});
+
 
 app.Run();
