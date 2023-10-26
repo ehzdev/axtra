@@ -7,10 +7,10 @@
       <div class="header__nav-2">
         <ul class="main-menu-3 menu-anim">
           <li>
-            <a href="/">home</a>
+            <a href="/">@_localization.Getkey("Home")</a>
           </li>
           <li>
-                <a href="@Url.RouteUrl($"ServicesIndex_En")" data-url="@ViewBag.ServicesIndex">@_localization.Getkey("Test")</a>
+                <a href="@_localization.Getkey("ServicesUrl")" data-url="@ViewBag.ServicesIndex">@_localization.Getkey("Services")</a>
           </li>
           @if(false) {
           <li class="has-megamenu"><a href="#">home</a>

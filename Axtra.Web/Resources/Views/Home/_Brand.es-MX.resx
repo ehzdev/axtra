@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
     Microsoft ResX Schema
@@ -117,16 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Home" xml:space="preserve">
-    <value>Inicio</value>
-    <comment/>
-  </data>
-  <data name="Services" xml:space="preserve">
-    <value>Servicios</value>
-    <comment/>
-  </data>
-  <data name="ServicesUrl" xml:space="preserve">
-    <value>servicios</value>
+  <data name="BrandTitle" xml:space="preserve">
+    <value>Trabajamos con las marcas más grandes a nivel mundial</value>
     <comment/>
   </data>
 </root>

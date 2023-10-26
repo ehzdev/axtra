@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
     Microsoft ResX Schema
@@ -117,16 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Home" xml:space="preserve">
-    <value>Inicio</value>
+  <data name="HeroText" xml:space="preserve">
+    <value>La revisión segura de código, tanto estática como dinámica, puede evitar problemas incluso antes de que tu producto se lance al mercado. Podemos integrarnos con tu entorno de desarrollo.</value>
     <comment/>
   </data>
-  <data name="Services" xml:space="preserve">
-    <value>Servicios</value>
+  <data name="WatchVideo" xml:space="preserve">
+    <value>Mira &lt;span&gt;el video&lt;/span&gt;</value>
     <comment/>
   </data>
-  <data name="ServicesUrl" xml:space="preserve">
-    <value>servicios</value>
+  <data name="CloseVideo" xml:space="preserve">
+    <value>Oculta &lt;span&gt;el video&lt;/span&gt;</value>
     <comment/>
   </data>
 </root>
